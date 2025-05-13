@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Donaciones";
+}
+
+<div id="donationCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/159497/school-notebook-binders-notepad-159497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 carrousel-img-size" alt="">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Donar en Especies</h5>
+                <p>Puedes donar materiales escolares como cuadernos, lápices, entre otros.</p>
+            </div>
+            
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/6646981/pexels-photo-6646981.jpeg" class="d-block w-100 carrousel-img-size" alt="Imagen 2">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Donar mi Tiempo</h5>
+                <p>Puedes donar tu tiempo realizando voluntariados.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.pexels.com/photos/6591164/pexels-photo-6591164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 carrousel-img-size" alt="Imagen 3">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Otras Formas de Donar</h5>
+                <p>Puedes donar por otros medios.</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#donationCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#donationCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div class="d-flex justify-content-center mt-4">
+    <p class="d-inline-flex gap-1">
+        <a class="btn btn-primary p-3" data-bs-toggle="collapse" href="#donarEspecies" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span>Donar en Especies </span><i class="fa-regular fa-heart"></i>
+        </a>
+        <a class="btn btn-primary p-3" data-bs-toggle="collapse" href="#donarTiempo" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span>Donar mi Tiempo </span><i class="fa-regular fa-clock"></i>
+        </a>
+        <a class="btn btn-primary p-3" data-bs-toggle="collapse" href="#donarDinero" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <span>Otras Formas de Donar </span><i class="fa-solid fa-money-check-dollar"></i>
+        </a>
+
+    </p>
+</div>
+
+
+
+<div class="collapse" id="donarEspecies">
+    <div class="card card-body">
+        Puedes donar materiales escolares como cuadernos, lapices, entre otros.
+    </div>
+</div>
+
+<div class="collapse" id="donarTiempo">
+    <div class="card card-body">
+        Puedes donar tu tiempo realizando voluntariados.
+    </div>
+</div>
+
+<div class="collapse" id="donarDinero">
+    <div class="card card-body">
+        Puedes donar por los siguientes medios:
+    </div>
+</div>

@@ -1,0 +1,90 @@
+﻿@model Razor_Front_End.Models.BecaViewModel
+
+@{
+    ViewData["Title"] = "Solicitar Beca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .container-form {
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="file"] {
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        width: 100%;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input[type="text"]:focus,
+    .form-group input[type="number"]:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+
+    .btn-primary {
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    @@keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .container {
+        animation: fadeIn 1s ease-in;
+    }
+</style>
+
+<div class="container-form">
+    <h2 class="text-center mb-4">Solicitud de Beca</h2>
+
+    <form id="solicitudBecaForm" method="post" enctype="multipart/form-data" asp-action="SolicitarNuevaBeca">
+        <div class="form-group">
+            <label for="nombrePadreMadre">Nombre del Padre/Madre</label>
+            <input type="text" id="nombrePadreMadre" name="nombrePadreMadre" value="@Model.NombrePadreMadre" />
+        </div>
+        <div class="form-group">
+            <label for="cedulaPadreMadre">Cédula del Padre/Madre</label>
+            <input type="text" id="cedulaPadreMadre" name="cedulaPadreMadre" value="@Model.CedulaPadreMadre" />
+        </div>
+        <div class="form-group">
+            <label for="nombreEstudiante">Nombre del Estudiante</label>
+            <input type="text" id="nombreEstudiante" name="nombreEstudiante" required />
+        </div>
+        <div class="form-group">
+            <label for="edadEstudiante">Edad del Estudiante</label>
+            <input type="number" id="edadEstudiante" name="edadEstudiante" required />
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" required />
+        </div>
+        <div class="form-group">
+            <label for="archivoNotas">Archivo de Notas</label>
+            <input type="file" id="archivoNotas" name="archivoNotas" />
+        </div>
+        <div class="form-group">
+            <label for="archivoCartaFirmada">Archivo de Carta Firmada</label>
+            <input type="file" id="archivoCartaFirmada" name="archivoCartaFirmada" />
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Enviar Solicitud</button>
+    </form>
+</div>

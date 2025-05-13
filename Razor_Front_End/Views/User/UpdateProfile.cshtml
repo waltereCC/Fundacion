@@ -1,0 +1,40 @@
+﻿@model UserUpdateViewModel
+
+@{
+    ViewData["Title"] = "Actualizar Perfil";
+}
+
+<h2>Actualizar Perfil</h2>
+
+<form asp-action="EditProfile" method="post">
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Apellidos"></label>
+        <input asp-for="Apellidos" class="form-control" />
+        <span asp-validation-for="Apellidos" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" readonly />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cedula"></label>
+        <input asp-for="Cedula" class="form-control" readonly />
+        <span asp-validation-for="Cedula" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" class="form-control" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+</form>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</div>

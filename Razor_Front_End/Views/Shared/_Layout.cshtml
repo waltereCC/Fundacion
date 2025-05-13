@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Fundación Cecilio Umaña</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/cardDashboard.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Fundación Cecilio Umaña</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="QuienesSomos">¿Quiénes somos?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Donaciones">Donaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
+                        </li>
+
+                        @if (ViewBag.UserRole == "admin")
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Becas" asp-action="AdminBecas">Ver solicitudes de becas</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Becas" asp-action="SolicitarNuevaBeca">Nueva solicitud de beca</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Donaciones" asp-action="VerDonaciones">Ver donaciones</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="User" asp-action="ObtenerUsuarios">Administrar usuarios y permisos</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="IndexAdmin">Panel de Administración</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Auth" asp-action="Logout">Cerrar sesión</a>
+                            </li>
+                        }
+                        else if (ViewBag.UserRole == "user")
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Usuario
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Becas" asp-action="MisBecas">Ver mis solicitudes de becas</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Becas" asp-action="SolicitarNuevaBeca">Nueva solicitud de beca</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Donaciones" asp-action="VerDonaciones">Mis Donaciones</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="User" asp-action="UpdateProfile">Mi Perfil</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="IndexUser">Panel de Administración</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Auth" asp-action="Logout">Cerrar sesión</a>
+                            </li>
+                        }
+
+                        @if (ViewBag.UserRole == "guest")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Auth" asp-action="Login">Iniciar sesión</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Auth" asp-action="Register">Crear una cuenta</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="chatbot-icon" class="chatbot-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+
+        <div id="chatbot-container" class="chatbot-container show">
+            <iframe src='https://webchat.botframework.com/embed/Bot_Test66?s=CnJQmvREIqQ.I-92CvUETpv_Y80AKMswbLIeO56RTwwOWWVOSq6Lo1w' style='min-width: 400px; width: 100%; min-height: 500px; border: none;'></iframe>
+        </div>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class=" footer-custom border-top footer">
+        <div class="container">
+            &copy; 2024 - Fundación Cecilio Umaña 
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/chatOptions.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

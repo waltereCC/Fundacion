@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/img/students.jpg" class="d-block w-100" alt="Imagen 1">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/library.jpg" class="d-block w-100" alt="Imagen 2">
+        </div>
+        <div class="carousel-item">
+            <img src="~/img/graduation.jpg" class="d-block w-100" alt="Imagen 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    <div class="scroll-down-btn" onclick="document.getElementById('content').scrollIntoView();">
+        <i class="fas fa-angle-down"></i>
+    </div>
+</div>
+
+<!-- Contenido principal -->
+<div id="content" class="container mt-5">
+    <!-- Video -->
+    <div class="row">
+        <div class="col-12">
+            <h2 class="section-title text-center">La Importancia de Estudiar</h2>
+            <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/embed/p9potmrnmG0" title="La Importancia de Estudiar" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subtema 1 -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3 class="section-title">Conocimientos en la Secundaria</h3>
+            <p>La secundaria es una etapa crucial para adquirir conocimientos. Cada materia, desde matemáticas hasta historia o ciencias, te brindará una base sólida. Aprenderás a pensar críticamente, resolver problemas y comunicarte de manera efectiva.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="~/img/studying.jpg" alt="Conocimientos en la Secundaria" class="img-fluid rounded">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6 order-md-2">
+            <h3 class="section-title">Beneficios para la Sociedad</h3>
+            <p>Ayudar a los adolescentes a cursar la secundaria no solo beneficia a los individuos, sino también a toda la sociedad. Es una inversión en el futuro y en la próxima generación.</p>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <img src="~/img/society.jpg" alt="Beneficios para la Sociedad" class="img-fluid rounded">
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3 class="section-title">Amistades para Toda la Vida</h3>
+            <p>Durante la secundaria, forjarás amistades que pueden durar toda la vida. Compartirás risas, secretos y momentos inolvidables con compañeros de clase. Estas conexiones te acompañarán en tu viaje y te brindarán apoyo en los buenos y malos momentos.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="~/img/friends.jpg" alt="Amistades para Toda la Vida" class="img-fluid rounded">
+        </div>
+    </div>
+    <div class="row vision-mission mt-5">
+        <div class="col-md-6">
+            <h3>Visión</h3>
+            <p>Ser una organización reconocida por transformar vidas a través del acceso equitativo a la educación secundaria, empoderando a jóvenes de bajos recursos para que puedan alcanzar su máximo potencial y contribuir positivamente a sus comunidades.</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Misión</h3>
+            <p>Facilitar el acceso a la educación secundaria para jóvenes de escasos recursos mediante la provisión de becas y apoyo integral, asegurando que cada estudiante cuente con las herramientas y el respaldo necesario para superar los desafíos y culminar su formación académica con éxito.</p>
+        </div>
+    </div>
+</div>

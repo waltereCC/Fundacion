@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Dashboard Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 class="text-center mb-4">Panel de Administración</h2>
+    <div class="card-container d-flex justify-content-center">
+        <div class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="content">
+                    <h3>Administrar Usuarios</h3>
+                    <a href="@Url.Action("ObtenerUsuarios", "User")" class="btn btn-primary">Ver Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="content">
+                    <h3>Solicitar Becas</h3>
+                    <a href="@Url.Action("SolicitarNuevaBeca", "Becas")" class="btn btn-primary">Solicitar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-file-alt" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="content">
+                    <h3>Ver Solicitudes de Becas</h3>
+                    <a href="@Url.Action("AdminBecas", "Becas")" class="btn btn-primary">Solicitudes</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="slide slide1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-donate" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="content">
+                    <h3>Ver Donaciones</h3>
+                    <a href="@Url.Action("Donaciones", "Home")" class="btn btn-primary">Donaciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

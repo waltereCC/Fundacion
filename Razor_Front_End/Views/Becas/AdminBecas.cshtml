@@ -1,0 +1,65 @@
+﻿@model List<BecaResponseModel>
+
+<h2 class="text-center my-4">Todas las Solicitudes de Becas</h2>
+
+<style>
+    .card {
+        max-width: 100% !important;
+    }
+</style>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger text-center">@ViewBag.ErrorMessage</div>
+}
+
+<div class="d-flex justify-content-center mb-4">
+    <a href="@Url.Action("DescargarReporteBecas", "Becas")" class="btn btn-primary">Descargar Informe de Becas</a>
+</div>
+
+<div class="row">
+    @foreach (var beca in Model)
+    {
+        <div class="col-md-6 col-lg-6 mb-5">
+            <div class="card shadow-sm h-100 card-becas">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Solicitud de Beca</h5>
+                    <p><strong>Nombre del Padre/Madre:</strong> @beca.NombrePadreMadre</p>
+                    <p><strong>Nombre del Estudiante:</strong> @beca.NombreEstudiante</p>
+                    <p><strong>Cédula del Padre/Madre:</strong> @beca.CedulaPadreMadre</p>
+                    <p><strong>Edad del Estudiante:</strong> @beca.EdadEstudiante</p>
+                    <p><strong>Dirección:</strong> @beca.Direccion</p>
+                    <p><strong>Estado:</strong> @beca.Estado</p>
+                    <p><strong>Fecha de Solicitud:</strong> @beca.FechaSolicitud.ToShortDateString()</p>
+                    <p><strong>Nombre del Usuario:</strong> @beca.UsuarioNombre</p>
+                    <p><strong>Email del Usuario:</strong> @beca.UsuarioEmail</p>
+
+                    <div class="mt-3">
+                        <h6>Archivos Subidos:</h6>
+                        <div class="mb-2">
+                            <label><strong>Archivo de Notas:</strong></label><br />
+                            <img src="@beca.ArchivoNotasUrl" alt="Archivo de Notas" class="img-thumbnail" />
+                        </div>
+                        <div>
+                            <label><strong>Archivo de Carta Firmada:</strong></label><br />
+                            <img src="@beca.ArchivoCartaFirmadaUrl" alt="Archivo de Carta Firmada" class="img-thumbnail" />
+                        </div>
+                    </div>
+
+                    <form asp-action="UpdateBecaEstado" method="post" class="mt-3">
+                        <input type="hidden" name="id" value="@beca.Id" />
+                        <div class="input-group">
+                            <select name="estado" class="form-select">
+                                <option value="Enviada para Revisión">Enviada para Revisión</option>
+                                <option value="En Revisión">En Revisión</option>
+                                <option value="Aceptada">Aceptada</option>
+                                <option value="Rechazada">Rechazada</option>
+                            </select>
+                            <button type="submit" class="btn btn-success ms-2">Actualizar Estado</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

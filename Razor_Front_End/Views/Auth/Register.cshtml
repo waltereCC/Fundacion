@@ -1,0 +1,65 @@
+﻿@model Razor_Front_End.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Registrarse";
+}
+
+<div class="d-flex justify-content-center">
+    <div class="wrapper my-5">
+        <div class="title">
+            Registrarse
+        </div>
+        <form asp-action="Register" method="post">
+            <div class="field">
+                <input asp-for="Username" class="form-control" />
+                <label asp-for="Username">Usuario</label>
+            </div>
+            <span asp-validation-for="Username" class="text-danger"></span>
+            <div class="field">
+                <input asp-for="Password" type="password" class="form-control" />
+                <label asp-for="Password">Contraseña</label>
+
+            </div>
+            <div class="field">
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <label asp-for="ConfirmPassword">Confirmar Contraseña</label>
+            </div>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            <div class="field">
+                <input asp-for="Email" type="email" class="form-control" />
+                <label asp-for="Email">Correo</label>
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <div class="field">
+                <input asp-for="Cedula" type="text" class="form-control" id="cedula" />
+                <label asp-for="Cedula">Cedula</label>
+            </div>
+            <span asp-validation-for="Cedula" class="text-danger"></span>
+
+            <div class="field">
+                <input asp-for="Nombre" id="nombre" name="nombre" type="text" class="form-control" readonly />
+                <label asp-for="Nombre">Nombre</label>
+            </div>
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+
+            <div class="field">
+                <input asp-for="Apellidos" id="apellidos" name="apellidos" type="text" class="form-control" readonly />
+                <label asp-for="Apellidos">Apellidos</label>
+            </div>
+            <span asp-validation-for="Apellidos" class="text-danger"></span>
+
+            <div class="field mt-5">
+                <input type="submit" value="Registrarse">
+            </div>
+            <div class="signup-link">
+                Ya tienes una cuenta? <a href="@Url.Action("Login", "Auth")" class="mx-2">Iniciar Sesión</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js"></script>
+}
+
